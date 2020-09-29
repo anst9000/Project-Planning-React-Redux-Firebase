@@ -6,21 +6,17 @@ const initState = {
   ],
 };
 
-const projectReducer = (
-  state = initState,
-  action,
-  { getFirebase, getFirestore }
-) => {
+const projectReducer = (state = initState, action) => {
   switch (action.type) {
     case "CREATE_PROJECT":
       console.log("Created project", action.project);
-      break;
+      return state;
+    case "CREATE_PROJECT_ERROR":
+      console.log("ERROR: Create project error", action.error);
+      return state;
     default:
-      console.log("In the default case");
-      break;
+      return state;
   }
-
-  return state;
 };
 
 export default projectReducer;
