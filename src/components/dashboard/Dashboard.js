@@ -39,10 +39,12 @@ export default compose(
   firestoreConnect([
     {
       collection: "projects",
+      orderBy: ["createdAt", "desc"],
     },
     {
       collection: "notifications",
       limit: 3,
+      orderBy: ["time", "desc"],
     },
   ])
 )(Dashboard);
